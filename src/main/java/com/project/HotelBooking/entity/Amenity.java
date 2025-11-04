@@ -1,5 +1,7 @@
 package com.project.HotelBooking.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Amenity {
 
     @Id
@@ -26,5 +29,6 @@ public class Amenity {
     private String description;
 
     @ManyToMany(mappedBy = "amenities")
+    @JsonIgnore
     private Set<Room> rooms = new HashSet<>();
 }

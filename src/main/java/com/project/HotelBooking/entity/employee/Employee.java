@@ -1,5 +1,6 @@
-package com.project.HotelBooking.entity;
+package com.project.HotelBooking.entity.employee;
 
+import com.project.HotelBooking.entity.RoomCleaning;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.project.HotelBooking.entity;
+package com.project.HotelBooking.entity.employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EmployeeRole {
 
-    ADMINISTRATOR("Администратор"),
+    АДМИНИСТРАТОР("Администратор"),
     HOUSEMAID("Горничная"),
     MANAGER("Менеджер"),
     PORTER("Портье");

@@ -1,5 +1,8 @@
-package com.project.HotelBooking.entity;
+package com.project.HotelBooking.entity.roomType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.project.HotelBooking.entity.Room;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,9 +18,11 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RoomType {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long typeId;
 
     @Convert(converter = RoomTypeNameConverter.class)
@@ -30,5 +35,6 @@ public class RoomType {
     private String description;
 
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Room> rooms;
 }

@@ -1,4 +1,4 @@
-package com.project.HotelBooking.entity;
+package com.project.HotelBooking.entity.roomType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

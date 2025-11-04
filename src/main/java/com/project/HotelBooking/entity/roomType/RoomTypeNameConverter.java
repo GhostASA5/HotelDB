@@ -1,4 +1,4 @@
-package com.project.HotelBooking.entity;
+package com.project.HotelBooking.entity.roomType;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
