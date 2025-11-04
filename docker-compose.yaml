@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12.3
+    ports:
+      - "5436:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=hotelBooking
+
+
+#
+#  hotel-booking:
+#    image: hotel-booking
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8088:8088"
+#    environment:
+#      - SERVER_PORT=8088
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres/hotelBooking
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=postgres
+#      - SPRING_JPA_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+#      - SPRING_DATA_MONGODB_URI=mongodb://root:root@mongodb:27017/bookingEvents
+#      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+#      - APP_KAFKA_MESSAGE_GROUP_ID=kafka-message-group-id
+#    depends_on:
+#      - postgres
+#      - mongodb
+#      - zookeeper
+#      - kafka

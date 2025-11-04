@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: HostelBooking
+
+  jpa:
+    generate-ddl: true
+    open-in-view: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5436/hotelBooking
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      schema: hotel
+      connection-init-sql: create schema if not exists hotel
+      connection-timeout: 10000
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+
+server:
+  port: 8088
+
