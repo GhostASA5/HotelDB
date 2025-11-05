@@ -7,9 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RoomTypeName {
 
-    STANDARD("Стандарт"),
-    FAMILY("Семейный"),
-    LUXURY("Люкс");
+    СТАНДАРТ("Стандарт"),
+    СЕМЕЙНЫЙ("Семейный"),
+    ЛЮКС("Люкс");
 
     private final String dbValue;
 

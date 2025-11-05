@@ -1,5 +1,6 @@
 package com.project.HotelBooking.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.HotelBooking.entity.employee.Employee;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
-@Table(name = "room_cleaning", schema = "hotel")
+@Table(name = "room_cleaning")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,7 +19,6 @@ public class RoomCleaning {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cleaning_id")
     private Long id;
 
     @ManyToOne
@@ -29,17 +29,15 @@ public class RoomCleaning {
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
-    @Column(name = "cleaning_time", nullable = false)
     private LocalDateTime cleaningTime;
 
-    @Column(name = "scheduled_time")
     private LocalTime scheduledTime;
 
     private String notes;
 
-    @Column(name = "created_at")
+    @JsonIgnore
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
+    @JsonIgnore
     private LocalDateTime updatedAt;
 }

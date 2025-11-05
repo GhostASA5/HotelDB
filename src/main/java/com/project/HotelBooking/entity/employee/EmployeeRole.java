@@ -8,9 +8,9 @@ import lombok.Getter;
 public enum EmployeeRole {
 
     АДМИНИСТРАТОР("Администратор"),
-    HOUSEMAID("Горничная"),
-    MANAGER("Менеджер"),
-    PORTER("Портье");
+    ГОРНИЧНАЯ("Горничная"),
+    МЕНЕДЖЕР("Менеджер"),
+    ПОРТЬЕ("Портье");
 
     private final String dbValue;
 
