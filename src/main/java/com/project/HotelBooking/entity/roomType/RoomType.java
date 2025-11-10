@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -26,7 +28,8 @@ public class RoomType {
     private Long typeId;
 
     @Enumerated(EnumType.STRING)
-    @Convert(converter = RoomTypeNameConverter.class)
+    @Column(columnDefinition = "room_type")
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private RoomTypeName typeName;
 
     private BigDecimal price;

@@ -2,9 +2,10 @@ package com.project.HotelBooking.entity.employee;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.HotelBooking.entity.RoomCleaning;
-import com.project.HotelBooking.entity.roomType.RoomTypeNameConverter;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long employeeId;
 
     private String firstName;
 
@@ -35,7 +36,8 @@ public class Employee {
     private String phone;
 
     @Enumerated(EnumType.STRING)
-    @Convert(converter = EmployeeRoleConverter.class)
+    @Column(columnDefinition = "employee_role")
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private EmployeeRole role;
 
     private LocalDate hireDate;

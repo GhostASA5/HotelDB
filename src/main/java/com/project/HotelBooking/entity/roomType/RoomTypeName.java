@@ -7,18 +7,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RoomTypeName {
 
-    СТАНДАРТ("Стандарт"),
-    СЕМЕЙНЫЙ("Семейный"),
-    ЛЮКС("Люкс");
+    Стандарт,
+    Семейный,
+    Люкс;
 
-    private final String dbValue;
 
-    public static RoomTypeName fromDbValue(String value) {
-        for (RoomTypeName type : values()) {
-            if (type.dbValue.equals(value)) {
-                return type;
-            }
-        }
-        throw new IllegalArgumentException("Unknown room type value: " + value);
-    }
 }

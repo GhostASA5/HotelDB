@@ -19,7 +19,7 @@ public class RoomCleaning {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long cleaningId;
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
