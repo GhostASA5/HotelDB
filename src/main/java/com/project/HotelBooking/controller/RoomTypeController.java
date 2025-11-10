@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/room-types")
@@ -24,6 +25,11 @@ public class RoomTypeController {
     @GetMapping
     public ResponseEntity<List<RoomType>> getAll() {
         return ResponseEntity.ok(service.getAllRoomType());
+    }
+
+    @GetMapping("/stats")
+    public ResponseEntity<List<Map<String, String>>> getRoomTypeStats() {
+        return ResponseEntity.ok(service.getRoomTypeStats());
     }
 
     @GetMapping("/{id}")

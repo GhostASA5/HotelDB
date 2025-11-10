@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +29,10 @@ public class BookingService {
         booking.setGuest(guest);
         booking.setRoom(room);
         return repository.save(booking);
+    }
+
+    public List<Map<String, String>> getMonthlyRevenue() {
+        return repository.getMonthlyRevenue();
     }
 
     public List<Booking> getAllBookings() {

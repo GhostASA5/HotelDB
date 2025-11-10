@@ -25,6 +25,7 @@ public class RoomType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long typeId;
 
+    @Enumerated(EnumType.STRING)
     @Convert(converter = RoomTypeNameConverter.class)
     private RoomTypeName typeName;
 

@@ -2,6 +2,7 @@ package com.project.HotelBooking.entity.employee;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.HotelBooking.entity.RoomCleaning;
+import com.project.HotelBooking.entity.roomType.RoomTypeNameConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,6 +35,7 @@ public class Employee {
     private String phone;
 
     @Enumerated(EnumType.STRING)
+    @Convert(converter = EmployeeRoleConverter.class)
     private EmployeeRole role;
 
     private LocalDate hireDate;

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -24,6 +25,11 @@ public class BookingController {
     @GetMapping
     public ResponseEntity<List<Booking>> getAllBookings() {
         return ResponseEntity.ok(service.getAllBookings());
+    }
+
+    @GetMapping("/monthly-revenue")
+    public ResponseEntity<List<Map<String, String>>> getMonthlyRevenue() {
+        return ResponseEntity.ok(service.getMonthlyRevenue());
     }
 
     @GetMapping("/{id}")

@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +23,10 @@ public class RoomTypeService {
     public RoomType createRoomType(RoomTypeDto roomTypeDto) {
         RoomType roomType = objectMapper.convertValue(roomTypeDto, RoomType.class);
         return repository.save(roomType);
+    }
+
+    public List<Map<String, String>> getRoomTypeStats() {
+        return repository.getRoomTypeStats();
     }
 
     public List<RoomType> getAllRoomType() {
