@@ -8,5 +8,6 @@
     <include file="db/changelog/changes/001-init-schema.sql" relativeToChangelogFile="false"/>
     <include file="db/changelog/changes/002-view-schema.sql" relativeToChangelogFile="false"/>
     <include file="db/changelog/changes/003-insert-values.sql" relativeToChangelogFile="false"/>
+    <include file="db/changelog/changes/004-procedures.sql" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

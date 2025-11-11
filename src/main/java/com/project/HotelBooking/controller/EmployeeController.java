@@ -21,6 +21,12 @@ public class EmployeeController {
         return ResponseEntity.ok(service.createEmployee(employeeDto));
     }
 
+    @PutMapping("/deactivate/{id}")
+    public ResponseEntity<Employee> deactivateEmployee(@PathVariable Long id) {
+        service.deactivateEmployee(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping
     public ResponseEntity<List<Employee>> getAllEmployees() {
         return ResponseEntity.ok(service.getAllEmployees());

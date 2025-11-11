@@ -22,13 +22,21 @@ public class BookingService {
     private final RoomService roomService;
     private final ObjectMapper objectMapper;
 
-    public Booking createBooking(BookingDto bookingDto) {
-        Booking booking = objectMapper.convertValue(bookingDto, Booking.class);
-        Guest guest = guestService.getGuestById(bookingDto.getGuestId());
-        Room room = roomService.getRoomById(bookingDto.getRoomId());
-        booking.setGuest(guest);
-        booking.setRoom(room);
-        return repository.save(booking);
+    public void createBooking(BookingDto bookingDto) {
+        try {
+            repository.addBooking(
+                    bookingDto.getGuestId(),
+                    bookingDto.getRoomId(),
+                    bookingDto.getCheckInDate(),
+                    bookingDto.getCheckOutDate(),
+                    bookingDto.getAdultsCount(),
+                    bookingDto.getChildrenCount(),
+                    bookingDto.getTotalPrice(),
+                    bookingDto.getSpecialRequests()
+            );
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Map<String, String>> getMonthlyRevenue() {

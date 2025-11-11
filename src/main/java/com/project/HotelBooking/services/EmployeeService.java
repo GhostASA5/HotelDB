@@ -24,6 +24,10 @@ public class EmployeeService {
         return repository.save(employee);
     }
 
+    public void deactivateEmployee(Long employeeId) {
+        repository.deactivateEmployee(employeeId);
+    }
+
     public List<Employee> getAllEmployees() {
         return repository.findAll();
     }
