@@ -57,8 +57,7 @@ CREATE TABLE IF NOT EXISTS hotel.bookings (
     special_requests TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CHECK (check_out_date > check_in_date),
-    CHECK (check_in_date >= CURRENT_DATE)
+    CHECK (check_out_date > check_in_date)
 );
 
 CREATE TYPE hotel.employee_role AS ENUM ('Администратор', 'Горничная', 'Менеджер', 'Портье');
@@ -89,7 +88,5 @@ CREATE TABLE IF NOT EXISTS hotel.room_cleaning (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (room_id) REFERENCES hotel.rooms(room_id) ON DELETE CASCADE,
-    FOREIGN KEY (employee_id) REFERENCES hotel.employees(employee_id),
-
-    CHECK (cleaning_time >= CURRENT_DATE)
+    FOREIGN KEY (employee_id) REFERENCES hotel.employees(employee_id)
 );

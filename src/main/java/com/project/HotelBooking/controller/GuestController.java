@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -24,6 +25,11 @@ public class GuestController {
     @GetMapping
     public ResponseEntity<List<Guest>> getAll(){
         return ResponseEntity.ok(service.getAllGuests());
+    }
+
+    @GetMapping("/total-spent/{id}")
+    public ResponseEntity<BigDecimal> getTotalSpentById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.getTotalSpent(id));
     }
 
     @GetMapping("/{id}")

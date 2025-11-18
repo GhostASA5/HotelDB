@@ -8,6 +8,7 @@ import com.project.HotelBooking.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -24,6 +25,10 @@ public class GuestService {
 
     public List<Guest> getAllGuests() {
         return repository.findAll();
+    }
+
+    public BigDecimal getTotalSpent(Long id) {
+        return repository.getTotalSpent(id);
     }
 
     public Guest getGuestById(Long id) {
