@@ -3,6 +3,7 @@ version: '3'
 services:
   postgres:
     image: postgres:12.3
+    container_name: postgres_hotel_db
     ports:
       - "5436:5432"
     environment:
@@ -17,3 +18,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8090:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_hotel_db:5432/hotelBooking
+    depends_on:
+      - postgres
